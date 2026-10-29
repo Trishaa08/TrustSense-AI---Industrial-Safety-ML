@@ -104,12 +104,10 @@ npm run dev
 
 ---
 
-## 5. Local Access URLs
+## 5. App Link : 
+https://trustsense-ai.vercel.app/
 
-* **Interactive Frontend Dashboard**: [http://127.0.0.1:5173/](http://127.0.0.1:5173/)
-* **Interactive FastAPI Swagger Docs**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-* **ReDoc API Specifications**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-* **Backend Health Check**: [http://127.0.0.1:8000/api/v1/health](http://127.0.0.1:8000/api/v1/health)
+
 
 ---
 
