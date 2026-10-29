@@ -1,0 +1,81 @@
+sensor_id,feature_name,healthy_reference_mean,healthy_reference_std,unit,profile_origin
+S01,response_time_s,18.9946,3.5397,seconds,synthetic_reference
+S01,recovery_time_s,31.9217,4.6549,seconds,synthetic_reference
+S01,pulse_amplitude,0.9934,0.0958,normalized,synthetic_reference
+S01,pulse_curve_distance,0.1265,0.057,normalized,synthetic_reference
+S01,baseline_estimate,11.7857,1.7619,sensor units,synthetic_reference
+S02,response_time_s,17.9094,2.8469,seconds,synthetic_reference
+S02,recovery_time_s,32.5064,4.4534,seconds,synthetic_reference
+S02,pulse_amplitude,0.9783,0.0888,normalized,synthetic_reference
+S02,pulse_curve_distance,0.1273,0.0659,normalized,synthetic_reference
+S02,baseline_estimate,11.9323,1.5187,sensor units,synthetic_reference
+S03,response_time_s,18.039,2.9087,seconds,synthetic_reference
+S03,recovery_time_s,32.6144,4.2043,seconds,synthetic_reference
+S03,pulse_amplitude,0.9892,0.0806,normalized,synthetic_reference
+S03,pulse_curve_distance,0.1155,0.0681,normalized,synthetic_reference
+S03,baseline_estimate,12.3689,1.7743,sensor units,synthetic_reference
+S04,response_time_s,17.6178,2.9257,seconds,synthetic_reference
+S04,recovery_time_s,32.8481,4.3656,seconds,synthetic_reference
+S04,pulse_amplitude,1.0011,0.0677,normalized,synthetic_reference
+S04,pulse_curve_distance,0.1227,0.0491,normalized,synthetic_reference
+S04,baseline_estimate,12.1118,1.7331,sensor units,synthetic_reference
+S05,response_time_s,18.9369,2.7203,seconds,synthetic_reference
+S05,recovery_time_s,32.4413,4.6898,seconds,synthetic_reference
+S05,pulse_amplitude,0.9972,0.0947,normalized,synthetic_reference
+S05,pulse_curve_distance,0.1173,0.0599,normalized,synthetic_reference
+S05,baseline_estimate,12.0524,1.5198,sensor units,synthetic_reference
+S06,response_time_s,18.7921,3.5579,seconds,synthetic_reference
+S06,recovery_time_s,30.4648,4.0334,seconds,synthetic_reference
+S06,pulse_amplitude,1.014,0.0847,normalized,synthetic_reference
+S06,pulse_curve_distance,0.1164,0.0541,normalized,synthetic_reference
+S06,baseline_estimate,12.0896,1.6741,sensor units,synthetic_reference
+S07,response_time_s,18.3128,3.3368,seconds,synthetic_reference
+S07,recovery_time_s,32.3305,4.1801,seconds,synthetic_reference
+S07,pulse_amplitude,1.0031,0.0833,normalized,synthetic_reference
+S07,pulse_curve_distance,0.1218,0.0642,normalized,synthetic_reference
+S07,baseline_estimate,11.8189,1.6821,sensor units,synthetic_reference
+S08,response_time_s,18.0763,2.8612,seconds,synthetic_reference
+S08,recovery_time_s,31.4897,4.602,seconds,synthetic_reference
+S08,pulse_amplitude,0.9982,0.0933,normalized,synthetic_reference
+S08,pulse_curve_distance,0.1074,0.0508,normalized,synthetic_reference
+S08,baseline_estimate,12.2622,1.34,sensor units,synthetic_reference
+S09,response_time_s,16.8371,2.4065,seconds,synthetic_reference
+S09,recovery_time_s,31.2933,3.8974,seconds,synthetic_reference
+S09,pulse_amplitude,1.0011,0.0799,normalized,synthetic_reference
+S09,pulse_curve_distance,0.1144,0.0632,normalized,synthetic_reference
+S09,baseline_estimate,11.9082,1.3841,sensor units,synthetic_reference
+S10,response_time_s,18.0176,2.4098,seconds,synthetic_reference
+S10,recovery_time_s,31.8998,4.2182,seconds,synthetic_reference
+S10,pulse_amplitude,1.0168,0.0691,normalized,synthetic_reference
+S10,pulse_curve_distance,0.1217,0.0708,normalized,synthetic_reference
+S10,baseline_estimate,11.8077,1.6271,sensor units,synthetic_reference
+S11,response_time_s,17.3841,3.4723,seconds,synthetic_reference
+S11,recovery_time_s,32.1585,3.6042,seconds,synthetic_reference
+S11,pulse_amplitude,0.999,0.0655,normalized,synthetic_reference
+S11,pulse_curve_distance,0.125,0.0552,normalized,synthetic_reference
+S11,baseline_estimate,11.9678,1.2614,sensor units,synthetic_reference
+S12,response_time_s,18.3476,3.0593,seconds,synthetic_reference
+S12,recovery_time_s,31.7889,3.8526,seconds,synthetic_reference
+S12,pulse_amplitude,1.0021,0.0738,normalized,synthetic_reference
+S12,pulse_curve_distance,0.1258,0.0511,normalized,synthetic_reference
+S12,baseline_estimate,11.8439,1.2621,sensor units,synthetic_reference
+S13,response_time_s,18.1614,3.2121,seconds,synthetic_reference
+S13,recovery_time_s,32.3513,4.1054,seconds,synthetic_reference
+S13,pulse_amplitude,0.9957,0.0747,normalized,synthetic_reference
+S13,pulse_curve_distance,0.1325,0.0626,normalized,synthetic_reference
+S13,baseline_estimate,11.7994,1.7719,sensor units,synthetic_reference
+S14,response_time_s,18.6553,2.7471,seconds,synthetic_reference
+S14,recovery_time_s,31.7581,4.7129,seconds,synthetic_reference
+S14,pulse_amplitude,1.0046,0.0703,normalized,synthetic_reference
+S14,pulse_curve_distance,0.1186,0.0508,normalized,synthetic_reference
+S14,baseline_estimate,12.6636,1.7218,sensor units,synthetic_reference
+S15,response_time_s,18.0543,2.6152,seconds,synthetic_reference
+S15,recovery_time_s,31.3625,3.2144,seconds,synthetic_reference
+S15,pulse_amplitude,0.988,0.0855,normalized,synthetic_reference
+S15,pulse_curve_distance,0.121,0.0523,normalized,synthetic_reference
+S15,baseline_estimate,11.3388,1.6748,sensor units,synthetic_reference
+S16,response_time_s,17.5246,2.4018,seconds,synthetic_reference
+S16,recovery_time_s,32.2365,4.3627,seconds,synthetic_reference
+S16,pulse_amplitude,0.9844,0.0743,normalized,synthetic_reference
+S16,pulse_curve_distance,0.1055,0.0492,normalized,synthetic_reference
+S16,baseline_estimate,11.7978,1.2607,sensor units,synthetic_reference

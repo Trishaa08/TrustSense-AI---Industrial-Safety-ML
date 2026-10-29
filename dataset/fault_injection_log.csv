@@ -1,0 +1,25 @@
+unit_id,sensor_id,fault_type,fault_start_day,fault_end_day,severity,label_source,note
+U013,S13,drift,28,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U014,S14,offset,17,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U015,S15,stuck,11,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U016,S16,noise_increase,26,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U017,S01,slow_response,21,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U018,S02,sensitivity_loss,23,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U019,S03,drift,10,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U020,S04,offset,14,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U021,S05,stuck,24,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U022,S06,noise_increase,26,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U023,S07,slow_response,17,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U024,S08,sensitivity_loss,25,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U025,S09,drift,26,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U026,S10,offset,16,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U027,S11,stuck,27,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U028,S12,noise_increase,14,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U029,S13,slow_response,13,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U030,S14,sensitivity_loss,23,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U031,S15,drift,22,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U032,S16,offset,11,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U033,S01,stuck,26,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U034,S02,noise_increase,12,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U035,S03,slow_response,25,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault
+U036,S04,sensitivity_loss,8,44,high,synthetically_injected_for_demo,Synthetic label; not a real physical sensor fault

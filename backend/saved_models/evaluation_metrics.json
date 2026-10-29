@@ -1,0 +1,858 @@
+{
+  "model_1_random_forest": {
+    "model_id": "model_1_random_forest",
+    "name": "Random Forest Sensor Health Classifier",
+    "model_type": "Supervised Binary Classifier",
+    "description": "Predicts healthy vs suspected faulty sensor windows with balanced class weighting.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "gas_reading",
+      "temperature_c",
+      "humidity_pct",
+      "airflow_m_s",
+      "baseline_estimate",
+      "response_time_s",
+      "recovery_time_s",
+      "rolling_noise_std",
+      "pulse_amplitude",
+      "pulse_curve_distance",
+      "baseline_deviation",
+      "diff_response_time",
+      "diff_recovery_time",
+      "diff_pulse_amplitude",
+      "diff_pulse_curve",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "output_schema": "P(faulty | features), binary prediction {0, 1}",
+    "train_samples": 22680,
+    "val_samples": 8640,
+    "test_samples": 7560,
+    "metrics": {
+      "accuracy": 0.9952380952380953,
+      "balanced_accuracy": 0.9950396825396826,
+      "precision": 0.9940476190476191,
+      "recall": 0.9940476190476191,
+      "f1_score": 0.9940476190476191,
+      "mcc": 0.9900793650793651,
+      "roc_auc": 0.9997916433377191,
+      "confusion_matrix": [
+        [
+          4518,
+          18
+        ],
+        [
+          18,
+          3006
+        ]
+      ],
+      "feature_importance": {
+        "pulse_curve_distance": 0.4775467940338823,
+        "diff_pulse_curve": 0.34132938625020853,
+        "recovery_time_s": 0.04245935490017935,
+        "rolling_noise_std": 0.03332225872919004,
+        "baseline_estimate": 0.03231339022017518,
+        "diff_recovery_time": 0.028090342486290994,
+        "baseline_deviation": 0.013682476856846907,
+        "gas_reading": 0.007845499632675642,
+        "response_time_s": 0.00601604286048868,
+        "diff_response_time": 0.005040446605064337,
+        "humidity_pct": 0.0034040432623270223,
+        "pulse_amplitude": 0.003133989676451683,
+        "diff_pulse_amplitude": 0.0029511349778158147,
+        "temperature_c": 0.0014147441676693147,
+        "airflow_m_s": 0.0007010171451863977,
+        "hour_sin": 0.0004342735850760523,
+        "hour_cos": 0.0003148046104718599
+      },
+      "calibration_curve": [
+        {
+          "pred": 0.00234864077338455,
+          "true": 0.001340782122905028
+        },
+        {
+          "pred": 0.1828568665252385,
+          "true": 0.11428571428571428
+        },
+        {
+          "pred": 0.31582814700808903,
+          "true": 0.23076923076923078
+        },
+        {
+          "pred": 0.43405545070029944,
+          "true": 0.38461538461538464
+        },
+        {
+          "pred": 0.5597449760809733,
+          "true": 0.6428571428571429
+        },
+        {
+          "pred": 0.6987515878374156,
+          "true": 0.8
+        },
+        {
+          "pred": 0.8258847444853719,
+          "true": 0.8
+        },
+        {
+          "pred": 0.9894426069488396,
+          "true": 0.9986509274873524
+        }
+      ],
+      "test_sample_count": 7560,
+      "class_distribution_test": {
+        "healthy_0": 4536,
+        "faulty_1": 3024
+      }
+    },
+    "known_limitations": "Trained on synthetic window statistics; does not guarantee real-world transfer without site calibration."
+  },
+  "model_2_xgboost_fault": {
+    "model_id": "model_2_xgboost_fault",
+    "name": "XGBoost Multiclass Fault-Type Classifier",
+    "model_type": "Supervised Multiclass (XGBoost (native))",
+    "description": "Classifies specific degradation modes: drift, offset, stuck, noise, slow response, sensitivity loss.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "gas_reading",
+      "temperature_c",
+      "humidity_pct",
+      "airflow_m_s",
+      "baseline_estimate",
+      "response_time_s",
+      "recovery_time_s",
+      "rolling_noise_std",
+      "pulse_amplitude",
+      "pulse_curve_distance",
+      "baseline_deviation",
+      "diff_response_time",
+      "diff_recovery_time",
+      "diff_pulse_amplitude",
+      "diff_pulse_curve",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "output_schema": "Class probabilities across 7 supported fault categories + uncertain flag",
+    "train_samples": 22680,
+    "val_samples": 8640,
+    "test_samples": 7560,
+    "metrics": {
+      "model_type": "XGBoost (native)",
+      "accuracy": 0.8328042328042328,
+      "macro_f1": 0.6129940909849835,
+      "classes": [
+        "none",
+        "drift",
+        "offset",
+        "stuck",
+        "noise_increase",
+        "slow_response",
+        "sensitivity_loss"
+      ],
+      "confusion_matrix": [
+        [
+          4525,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          28,
+          421,
+          0,
+          1,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          744,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          29,
+          786,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          41,
+          361,
+          0,
+          0,
+          0,
+          78,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          528
+        ]
+      ],
+      "per_class_metrics": {
+        "none": {
+          "precision": 0.9788016439541424,
+          "recall": 0.9975749559082893,
+          "f1-score": 0.9880991374604214,
+          "support": 4536.0
+        },
+        "drift": {
+          "precision": 0.26662444585180495,
+          "recall": 0.9232456140350878,
+          "f1-score": 0.41375921375921376,
+          "support": 456.0
+        },
+        "offset": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 744.0
+        },
+        "stuck": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 816.0
+        },
+        "noise_increase": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "slow_response": {
+          "precision": 0.9176470588235294,
+          "recall": 0.1625,
+          "f1-score": 0.2761061946902655,
+          "support": 480.0
+        },
+        "sensitivity_loss": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 528.0
+        }
+      },
+      "feature_importance": {
+        "rolling_noise_std": 0.29837456345558167,
+        "pulse_curve_distance": 0.1723639965057373,
+        "pulse_amplitude": 0.111563540995121,
+        "response_time_s": 0.09886795282363892,
+        "baseline_deviation": 0.0925290584564209,
+        "diff_pulse_amplitude": 0.0917571410536766,
+        "baseline_estimate": 0.044415708631277084,
+        "diff_pulse_curve": 0.03320401906967163,
+        "recovery_time_s": 0.02412429265677929,
+        "diff_recovery_time": 0.019666485488414764,
+        "gas_reading": 0.008065486326813698,
+        "diff_response_time": 0.0012239186326041818,
+        "humidity_pct": 0.0009295238996855915,
+        "temperature_c": 0.000862346263602376,
+        "airflow_m_s": 0.0008194249821826816,
+        "hour_sin": 0.0007163628470152617,
+        "hour_cos": 0.000516176805831492
+      },
+      "test_sample_count": 7560
+    },
+    "known_limitations": "Ambiguous multi-fault interactions are classified as 'uncertain'; requires clean baseline profile."
+  },
+  "model_3_cnn_autoencoder": {
+    "model_id": "model_3_cnn_autoencoder",
+    "name": "1D-CNN Sequence Autoencoder",
+    "model_type": "Deep Learning Semi-Supervised Reconstruction",
+    "description": "Reconstructs nominal sensor response patterns; flags anomalies when reconstruction error exceeds validation threshold.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "gas_reading",
+      "temperature_c",
+      "humidity_pct",
+      "airflow_m_s",
+      "baseline_estimate",
+      "response_time_s",
+      "recovery_time_s",
+      "rolling_noise_std",
+      "pulse_amplitude",
+      "pulse_curve_distance",
+      "baseline_deviation",
+      "diff_response_time",
+      "diff_recovery_time",
+      "diff_pulse_amplitude",
+      "diff_pulse_curve",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "output_schema": "Reconstruction MSE, validation-calibrated threshold, boolean anomaly flag",
+    "train_samples": 14040,
+    "val_samples": 5544,
+    "test_samples": 7560,
+    "metrics": {
+      "model_type": "1D-CNN Sequence Autoencoder (PyTorch)",
+      "anomaly_threshold": 0.01489680539816618,
+      "validation_healthy_samples": 5544,
+      "test_samples": 7560,
+      "anomaly_recall": 0.8207671957671958,
+      "false_alarm_rate": 0.050044091710758375,
+      "precision": 0.9162052417866371,
+      "confusion": {
+        "TP": 2482,
+        "FP": 227,
+        "TN": 4309,
+        "FN": 542
+      },
+      "sample_original_curve": [
+        -0.45859031920171417,
+        -1.9772083071672355,
+        1.074774479379848,
+        1.3767714826134747,
+        -0.848741671580028,
+        0.8516918241055838,
+        -0.06996725936522753,
+        -0.3103025991129325,
+        -0.2554651929606119,
+        -0.6272160084695243,
+        -0.15215838280040286,
+        0.6494758963570125,
+        -0.13120693561090702,
+        -0.27076319035380336,
+        -0.6144995987698858,
+        2.36483061678297e-17,
+        1.414213562373095
+      ],
+      "sample_reconstructed_curve": [
+        -0.5229276418685913,
+        -1.8249043226242065,
+        1.076075553894043,
+        1.2669041156768799,
+        -0.7956953644752502,
+        0.7253578305244446,
+        -0.17026442289352417,
+        -0.26420512795448303,
+        -0.25461459159851074,
+        -0.6215195059776306,
+        -0.17166578769683838,
+        0.5898695588111877,
+        -0.1692710518836975,
+        -0.2814028263092041,
+        -0.6603161096572876,
+        -0.02690911293029785,
+        1.396802544593811
+      ],
+      "mean_healthy_error": 0.00745127908885479,
+      "mean_test_faulty_error": 0.1609186977148056
+    },
+    "known_limitations": "Anomaly does not distinguish between a sensor fault and an unfamiliar gas or environment state."
+  },
+  "model_4_isolation_forest": {
+    "model_id": "model_4_isolation_forest",
+    "name": "Isolation Forest Novelty Detector",
+    "model_type": "Unsupervised Ensemble Anomaly Detector",
+    "description": "Isolates unexpected outliers and multivariate shifts without relying on fault labels.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "gas_reading",
+      "temperature_c",
+      "humidity_pct",
+      "airflow_m_s",
+      "baseline_estimate",
+      "response_time_s",
+      "recovery_time_s",
+      "rolling_noise_std",
+      "pulse_amplitude",
+      "pulse_curve_distance",
+      "baseline_deviation",
+      "diff_response_time",
+      "diff_recovery_time",
+      "diff_pulse_amplitude",
+      "diff_pulse_curve",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "output_schema": "Normalized outlier score [0, 1] and sensitivity threshold",
+    "train_samples": 22680,
+    "val_samples": 8640,
+    "test_samples": 7560,
+    "metrics": {
+      "model_type": "Isolation Forest (Unsupervised)",
+      "n_estimators": 100,
+      "contamination_parameter": 0.15,
+      "anomaly_recall_vs_faults": 0.26587301587301587,
+      "false_alarm_rate": 0.009259259259259259,
+      "mean_anomaly_score_normal": 0.404617215173744,
+      "mean_anomaly_score_faulty": 0.46621408203311593,
+      "score_distribution_quantiles": {
+        "q25": 0.39300239034599843,
+        "q50": 0.4140122298148655,
+        "q75": 0.45337995245733603,
+        "q95": 0.5366142844715602
+      },
+      "interpretation_note": "Unsupervised anomaly detection flags deviations from nominal feature density. Note: severe environmental shifts (e.g. abrupt humidity spikes) can also elevate anomaly scores."
+    },
+    "known_limitations": "Severe environmental changes (e.g. rapid ventilation shutdown) may elevate anomaly scores."
+  },
+  "model_5_ewma_cusum": {
+    "model_id": "model_5_ewma_cusum",
+    "name": "EWMA & CUSUM Change-Point Detectors",
+    "model_type": "Statistical Process Control (SPC)",
+    "description": "Monitors cumulative baseline shifts and exponential moving averages to track continuous sensor degradation.",
+    "version": "1.0.0",
+    "status": "active",
+    "input_features": [
+      "gas_reading",
+      "baseline_estimate"
+    ],
+    "output_schema": "CUSUM C+ / C- statistics, control limits, change point timestamps",
+    "train_samples": 0,
+    "val_samples": 0,
+    "test_samples": 23040,
+    "metrics": {
+      "model_type": "EWMA & CUSUM Statistical Change Detectors (SPC)",
+      "sensors_evaluated": 8,
+      "total_observations_analyzed": 23040,
+      "total_change_alarms": 3591,
+      "alarms_per_thousand_readings": 155.859375,
+      "mean_detection_delay_minutes": 4.2,
+      "sensor_summaries": {
+        "S01": {
+          "sensor_id": "S01",
+          "readings_count": 2880,
+          "alarm_count": 303,
+          "change_points_count": 303,
+          "last_ewma": 13.385888670869058,
+          "sample_change_points": [
+            {
+              "index": 1014,
+              "type": "negative_drift_loss",
+              "value": 11.532
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 88.661
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 62.983
+            },
+            {
+              "index": 1082,
+              "type": "positive_drift_step",
+              "value": 31.756
+            },
+            {
+              "index": 1083,
+              "type": "positive_drift_step",
+              "value": 38.891
+            }
+          ]
+        },
+        "S02": {
+          "sensor_id": "S02",
+          "readings_count": 2880,
+          "alarm_count": 300,
+          "change_points_count": 300,
+          "last_ewma": 14.87026943848333,
+          "sample_change_points": [
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 48.95
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 38.326
+            },
+            {
+              "index": 1082,
+              "type": "positive_drift_step",
+              "value": 64.2
+            },
+            {
+              "index": 1083,
+              "type": "positive_drift_step",
+              "value": 67.428
+            },
+            {
+              "index": 1084,
+              "type": "positive_drift_step",
+              "value": 33.981
+            }
+          ]
+        },
+        "S03": {
+          "sensor_id": "S03",
+          "readings_count": 2880,
+          "alarm_count": 685,
+          "change_points_count": 685,
+          "last_ewma": 22.350070651477054,
+          "sample_change_points": [
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 36.643
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 41.908
+            },
+            {
+              "index": 1082,
+              "type": "positive_drift_step",
+              "value": 76.788
+            },
+            {
+              "index": 1083,
+              "type": "positive_drift_step",
+              "value": 46.957
+            },
+            {
+              "index": 1084,
+              "type": "positive_drift_step",
+              "value": 76.405
+            }
+          ]
+        },
+        "S04": {
+          "sensor_id": "S04",
+          "readings_count": 2880,
+          "alarm_count": 955,
+          "change_points_count": 955,
+          "last_ewma": 19.40174955766441,
+          "sample_change_points": [
+            {
+              "index": 279,
+              "type": "positive_drift_step",
+              "value": 16.719
+            },
+            {
+              "index": 486,
+              "type": "negative_drift_loss",
+              "value": 10.363
+            },
+            {
+              "index": 907,
+              "type": "positive_drift_step",
+              "value": 18.202
+            },
+            {
+              "index": 1051,
+              "type": "negative_drift_loss",
+              "value": 11.751
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 40.322
+            }
+          ]
+        },
+        "S05": {
+          "sensor_id": "S05",
+          "readings_count": 2880,
+          "alarm_count": 306,
+          "change_points_count": 306,
+          "last_ewma": 14.152219078835085,
+          "sample_change_points": [
+            {
+              "index": 460,
+              "type": "negative_drift_loss",
+              "value": 12.023
+            },
+            {
+              "index": 959,
+              "type": "positive_drift_step",
+              "value": 16.248
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 69.473
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 86.349
+            },
+            {
+              "index": 1082,
+              "type": "positive_drift_step",
+              "value": 53.162
+            }
+          ]
+        },
+        "S06": {
+          "sensor_id": "S06",
+          "readings_count": 2880,
+          "alarm_count": 352,
+          "change_points_count": 352,
+          "last_ewma": 12.694705443445697,
+          "sample_change_points": [
+            {
+              "index": 68,
+              "type": "positive_drift_step",
+              "value": 17.309
+            },
+            {
+              "index": 345,
+              "type": "positive_drift_step",
+              "value": 17.378
+            },
+            {
+              "index": 504,
+              "type": "positive_drift_step",
+              "value": 15.165
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 59.584
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 56.828
+            }
+          ]
+        },
+        "S07": {
+          "sensor_id": "S07",
+          "readings_count": 2880,
+          "alarm_count": 306,
+          "change_points_count": 306,
+          "last_ewma": 14.568287979283658,
+          "sample_change_points": [
+            {
+              "index": 324,
+              "type": "negative_drift_loss",
+              "value": 9.746
+            },
+            {
+              "index": 393,
+              "type": "positive_drift_step",
+              "value": 18.362
+            },
+            {
+              "index": 675,
+              "type": "negative_drift_loss",
+              "value": 11.757
+            },
+            {
+              "index": 742,
+              "type": "positive_drift_step",
+              "value": 17.617
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 69.309
+            }
+          ]
+        },
+        "S08": {
+          "sensor_id": "S08",
+          "readings_count": 2880,
+          "alarm_count": 384,
+          "change_points_count": 384,
+          "last_ewma": 12.917516394325043,
+          "sample_change_points": [
+            {
+              "index": 705,
+              "type": "negative_drift_loss",
+              "value": 12.136
+            },
+            {
+              "index": 882,
+              "type": "positive_drift_step",
+              "value": 17.5
+            },
+            {
+              "index": 1080,
+              "type": "positive_drift_step",
+              "value": 80.796
+            },
+            {
+              "index": 1081,
+              "type": "positive_drift_step",
+              "value": 35.104
+            },
+            {
+              "index": 1082,
+              "type": "positive_drift_step",
+              "value": 49.223
+            }
+          ]
+        }
+      }
+    },
+    "known_limitations": "Requires baseline estimation window; sudden legitimate gas spikes trigger temporary change points."
+  },
+  "model_6_knn_exemplar": {
+    "model_id": "model_6_knn_exemplar",
+    "name": "K-Nearest Neighbors Reference Classifier",
+    "model_type": "Non-Parametric Instance-Based Learning",
+    "description": "Directly compares query observation with labeled healthy and faulty sensor exemplars in normalized space.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "gas_reading",
+      "temperature_c",
+      "humidity_pct",
+      "airflow_m_s",
+      "baseline_estimate",
+      "response_time_s",
+      "recovery_time_s",
+      "rolling_noise_std",
+      "pulse_amplitude",
+      "pulse_curve_distance",
+      "baseline_deviation",
+      "diff_response_time",
+      "diff_recovery_time",
+      "diff_pulse_amplitude",
+      "diff_pulse_curve",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "output_schema": "k-nearest exemplar distances, class prediction, neighbor weights",
+    "train_samples": 4000,
+    "val_samples": 8640,
+    "test_samples": 7560,
+    "metrics": {
+      "model_type": "K-Nearest Neighbors (k=7, Distance-Weighted)",
+      "validated_k": 7,
+      "best_validation_f1": 0.0,
+      "test_accuracy": 0.9873015873015873,
+      "test_f1": 0.9838872104733132,
+      "confusion_matrix": [
+        [
+          4533,
+          3
+        ],
+        [
+          93,
+          2931
+        ]
+      ],
+      "reference_pool_size": 4000,
+      "test_sample_count": 7560
+    },
+    "known_limitations": "Computational cost scales with reference pool; sensitive to irrelevant noisy features."
+  },
+  "model_7_calibrated_fusion": {
+    "model_id": "model_7_calibrated_fusion",
+    "name": "Calibrated Evidence-Fusion Meta-Classifier",
+    "model_type": "Platt-Calibrated Meta-Classifier",
+    "description": "Combines supervised probability, autoencoder ratio, isolation forest score, and physical deviations into calibrated reliability estimates.",
+    "version": "1.0.0",
+    "status": "trained",
+    "input_features": [
+      "rf_fault_prob",
+      "ae_error_ratio",
+      "iso_score",
+      "ref_pulse_dev",
+      "ref_response_dev"
+    ],
+    "output_schema": "Calibrated fault probability, meta-weights, uncertainty flag",
+    "train_samples": 8640,
+    "val_samples": 8640,
+    "test_samples": 7560,
+    "metrics": {
+      "model_type": "Calibrated Evidence-Fusion Meta-Classifier (Platt-Calibrated LR)",
+      "accuracy": 0.9943121693121693,
+      "f1_score": 0.9928654388584702,
+      "brier_score": 0.004607286040868762,
+      "confusion_matrix": [
+        [
+          4525,
+          11
+        ],
+        [
+          32,
+          2992
+        ]
+      ],
+      "component_meta_weights": {
+        "rf_fault_prob": 10.135507011105629,
+        "autoencoder_norm_error": 1.1764088400088961,
+        "iso_forest_anom_score": -0.346173424827066,
+        "ref_pulse_deviation": -0.21358260715722835,
+        "ref_response_deviation": -0.2838692944376068
+      },
+      "calibration_curve": [
+        {
+          "prob_pred": 0.0005419787609610091,
+          "prob_true": 0.004409171075837742
+        },
+        {
+          "prob_pred": 0.1245103778804382,
+          "prob_true": 0.4444444444444444
+        },
+        {
+          "prob_pred": 0.25170395987706085,
+          "prob_true": 0.25
+        },
+        {
+          "prob_pred": 0.35976363547724083,
+          "prob_true": 0.75
+        },
+        {
+          "prob_pred": 0.4528264493806768,
+          "prob_true": 1.0
+        },
+        {
+          "prob_pred": 0.5513614648434135,
+          "prob_true": 0.6666666666666666
+        },
+        {
+          "prob_pred": 0.6631111541190163,
+          "prob_true": 0.3333333333333333
+        },
+        {
+          "prob_pred": 0.7614351587430951,
+          "prob_true": 0.75
+        },
+        {
+          "prob_pred": 0.8671286769272183,
+          "prob_true": 1.0
+        },
+        {
+          "prob_pred": 0.9900411683580972,
+          "prob_true": 0.9986531986531987
+        }
+      ],
+      "test_sample_count": 7560,
+      "design_note": "Fuses supervised probability, autoencoder reconstruction ratio, isolation forest score, and physical reference deviations."
+    },
+    "known_limitations": "Does not override raw physical safety alarms; returns uncertain if base models conflict."
+  }
+}

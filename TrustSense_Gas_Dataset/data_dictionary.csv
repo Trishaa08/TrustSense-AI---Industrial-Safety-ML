@@ -1,0 +1,24 @@
+column_name,description,data_type,example
+timestamp,Date/time of sensor observation,datetime,ISO timestamp
+unit_id,Unique simulated sensor unit used for group split,string,U001
+sensor_id,Sensor location/device identifier,string,S01
+batch_id,Synthetic sensor batch identifier,string,B1
+gas_reading,Observed gas signal in arbitrary simulated units,float,13.4
+true_gas_ppm_simulated,"Simulated ground-truth concentration, not measured",float,18.2
+temperature_c,Ambient temperature,float,24.1 °C
+humidity_pct,Relative humidity,float,52.0 %
+airflow_m_s,Simulated airflow estimate,float,0.6 m/s
+response_time_s,Response-time feature,float,18 seconds
+recovery_time_s,Recovery-time feature,float,32 seconds
+rolling_noise_std,Noise feature used for diagnostics,float,1.0
+pulse_amplitude,Normalized test-pulse amplitude feature,float,1.0
+pulse_curve_distance,Distance from synthetic healthy reference curve,float,0.12
+gas_event,Binary simulated gas-event label,int,0 or 1
+env_shift,Binary environmental-shift label,int,0 or 1
+is_faulty,Binary synthetic sensor-fault label,int,0 or 1
+fault_type,Synthetic fault class,string,none/drift/offset/stuck/noise_increase/slow_response/sensitivity_loss
+label_state,Main state label,string,normal/gas_event/env_shift/sensor_fault
+leak_masked_by_fault,Synthetic flag for gas event potentially under-reported by fault,int,0 or 1
+split_units,Predefined group split label,string,train/validation/test
+"x_m, y_m",Sensor coordinates in facility layout,float,metres
+"source_x_m, source_y_m",Synthetic ground-truth leak source coordinates,float,metres
